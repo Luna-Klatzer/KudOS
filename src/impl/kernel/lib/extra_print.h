@@ -8,7 +8,7 @@
 
 #pragma once
 
-#include "print.h"
+#include "../main.h"
 #include <stdint.h>
 #include <stddef.h>
 

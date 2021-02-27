@@ -6,8 +6,7 @@
  * Description: Main Interface and display for the Startup
  */ 
 
-#include "startup.h"
-#include "extra_print.h"
+#include "main.h"
 
 // Prints a small sign saying KudoOS
 void kudoos_symbol() {

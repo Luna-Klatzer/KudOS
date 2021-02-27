@@ -1,7 +1,9 @@
 #pragma once
 
-#include "../x86_64/intf/startup.h"
-#include "../x86_64/lib/base.h"
+#include "startup.h"
+#include "lib/base.h"
+#include "lib/extra_print.h"
+#include "../x86_64/interface/print.h"
 #include <stdbool.h>
 
 #ifndef MAIN_H_

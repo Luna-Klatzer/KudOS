@@ -7,8 +7,6 @@
  */ 
 
 #include "main.h"
-#include "../x86_64/intf/print.h"
-#include "../x86_64/intf/extra_print.h"
 
 // The global ERROR_MSG variable will be updated whenever a exception was raised
 char *ERROR_MSG = "";
