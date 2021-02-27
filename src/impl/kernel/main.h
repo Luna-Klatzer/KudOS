@@ -1,6 +1,5 @@
 #pragma once
 
-#include "../x86_64/intf/print.h"
 #include "../x86_64/intf/startup.h"
 #include "../x86_64/lib/base.h"
 #include <stdbool.h>

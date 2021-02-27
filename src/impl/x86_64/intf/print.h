@@ -16,7 +16,7 @@
 #define PRINT_H_
 
 const static size_t NUM_COLS = 80;
-const static size_t NUM_ROWS = 25;
+const static size_t NUM_ROWS = 20;
 
 enum {
     PRINT_COLOR_BLACK = 0,
@@ -39,6 +39,8 @@ enum {
 
 void clear_console();
 void newline();
+void clear_row();
+void overwrite_row(char* str, size_t overwrite_row);
 void print_char(char character);
 void print(char* string);
 void set_console_color(uint8_t foreground, uint8_t background);

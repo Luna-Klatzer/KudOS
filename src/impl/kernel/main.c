@@ -7,16 +7,27 @@
  */ 
 
 #include "main.h"
+#include "../x86_64/intf/print.h"
+#include "../x86_64/intf/extra_print.h"
 
 // The global ERROR_MSG variable will be updated whenever a exception was raised
 char *ERROR_MSG = "";
 
 
-// Startup Function used for starting the OS processes
-// Currently only used for printing!
+/** Startup Function used for starting the OS processes
+ *  Currently only used for printing!
+ */  
 uint8_t startup() {
     clear_console();
     kudoos_symbol();
+
+    // Some Testing stuff
+    for (int i = 0; i < 16; i++)
+    {
+        print("x\n");
+    }
+    printnl("d");
+    print("t");
 
     return SUCCESS;
 }
