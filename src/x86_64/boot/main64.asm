@@ -12,12 +12,5 @@ long_mode_start:
     mov fs, ax
     mov gs, ax
 
-    ; print `STATUSOK` to screen
-    mov dword [0xb8000], 0x2f542f53
-    mov dword [0xb8004], 0x2f542f41
-    mov dword [0xb8008], 0x2f532f55
-    mov dword [0xb800c], 0x20202020
-    mov dword [0xb8010], 0x2f4b2f4f
-
     call kernel_main
     hlt

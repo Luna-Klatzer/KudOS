@@ -15,6 +15,10 @@
 #ifndef PRINT_H_
 #define PRINT_H_
 
+#if __cplusplus
+extern "C" {
+#endif
+
 const static size_t NUM_COLS = 80;
 const static size_t NUM_ROWS = 20;
 
@@ -44,5 +48,9 @@ void overwrite_row(char* str, size_t overwrite_row);
 void print_char(char character);
 void print(char* string);
 void set_console_color(uint8_t foreground, uint8_t background);
+
+#if __cplusplus
+}
+#endif
 
 #endif

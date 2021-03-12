@@ -2,7 +2,7 @@ ENTRY(start)
 
 SECTIONS
 {
-    . = 1M;
+    . = 0x0100000;
 
     .boot :
     {
@@ -12,5 +12,11 @@ SECTIONS
     .text :
     {
         *(.text)
+        *(.multiboot)
+    }
+
+    .bss  :
+    {
+        *(.bss)
     }
 }

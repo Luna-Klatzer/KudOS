@@ -9,6 +9,14 @@
 #ifndef STARTUP_H_
 #define STARTUP_H_
 
+#if __cplusplus
+extern "C" {
+#endif
+
 void kudoos_symbol();
+
+#if __cplusplus
+}
+#endif
 
 #endif
