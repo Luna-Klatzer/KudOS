@@ -6,9 +6,9 @@
  * Description: Print Utility to interact with the Console Interface 
  */ 
 
-
 #pragma once
 
+#include "../types.h"
 #include <stdint.h>
 #include <stddef.h>
 

@@ -6,7 +6,6 @@
  * Description: Print Utility to interact with the Console Interface 
  */ 
 
-
 #include "print.h"
 
 /// Char struct used to represent a Character
@@ -72,6 +71,8 @@ void clear_console() {
     {
         clear_row(i);   
     }
+    col = 0;
+    row = 0;
 }
 
 

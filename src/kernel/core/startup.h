@@ -6,6 +6,8 @@
  * Description: Main Interface and display for the Startup
  */ 
 
+#include "types.h"
+
 #ifndef STARTUP_H_
 #define STARTUP_H_
 

@@ -8,7 +8,8 @@
 
 #pragma once
 
-#include "../interface/print.h"
+#include "../types.h"
+#include "print.h"
 #include <stdint.h>
 #include <stddef.h>
 
@@ -18,6 +19,7 @@
 #if __cplusplus
 extern "C" {
 #endif
+
 
 void print_chars(char character, uint8_t amount);
 void print_new_lines(uint8_t amount);
