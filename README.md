@@ -1,6 +1,6 @@
 # Kudo Disk Operating System
 
-A OS and Kernel Project for Learning Purposes based on Nasm and x86_64 which implements C and C++ code for kernel functionality
+An OS and Kernel Project for Learning Purposes based on Nasm and x86_64 which implements C and C++ code for kernel functionality
 
 ## Building .iso and /dist
 
