@@ -10,14 +10,14 @@ on Linux or Windows but for ease docker is used since it can provide quick and s
 features that make building it rather easy.
 
 ```bash
-docker build ./buildenv -t kudoos-build  
+docker build ./buildenv -t kudos-build  
 ```
 
 ### Entering the shared container
 
- - Linux or MacOS: `docker run --rm -it -v "$pwd":/root/env kudoos-build`
- - Windows (CMD): `docker run --rm -it -v "%cd%":/root/env kudoos-build`
- - Windows (PowerShell): `docker run --rm -it -v "${pwd}:/root/env" kudoos-build`
+ - Linux or MacOS: `docker run --rm -it -v "$pwd":/root/env kudos-build`
+ - Windows (CMD): `docker run --rm -it -v "%cd%":/root/env kudos-build`
+ - Windows (PowerShell): `docker run --rm -it -v "${pwd}:/root/env" kudos-build`
  - NOTE: If you are having trouble with an unshared drive, ensure your docker daemon has access to the drive you're development environment is in. 
    For Docker Desktop, this is in "Settings > Shared Drives" or "Settings > Resources > File Sharing".
 
