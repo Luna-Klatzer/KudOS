@@ -6,7 +6,7 @@
  * Description: Core Kernel file which contains the core calls
  */ 
 
-#include "kernel.h"
+#include "kernel.hpp"
 #include "core/startup.h"
 #include "core/lib/base.h"
 #include "core/lib/interface/extra_print.h"
