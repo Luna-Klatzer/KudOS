@@ -1,4 +1,4 @@
-# KudoOS
+# Kudo Disk Operating System
 
 A small OS and Kernel Project for Learning Purposes
 
