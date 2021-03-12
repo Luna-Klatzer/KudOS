@@ -21,12 +21,12 @@ void print_start_symbol() {
         "  |___| |_||_______||______| |_______| |_______| \n",
     };
 
-    print_new_lines(11);
+    print_new_lines(7);
     print_chars('*', NUM_COLS);
 
     for (uint8_t i = 0; i < 7; i++) 
     {
-        print_spaces(6);
+        print_spaces(15);
         print(display_name[i]);
     }
     print_chars('*', NUM_COLS);

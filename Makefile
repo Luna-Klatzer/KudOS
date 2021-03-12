@@ -42,6 +42,6 @@ $(x86_64_asm_object_files): build/x86_64/%.o : src/x86_64/%.asm
 .PHONY: build-x86_64
 build-x86_64: $(kernel_object_files) $(kernel_cpp_object_files) $(x86_64_object_files)
 	mkdir -p dist/x86_64 && \
-	x86_64-elf-ld -n -o dist/x86_64/kudos.bin -T targets/x86_64/linker.ld $(kernel_object_files) $(kernel_cpp_object_files) $(x86_64_object_files) && \
-	cp dist/x86_64/kudos.bin targets/x86_64/iso/boot/kudos.bin && \
+	x86_64-elf-ld -n -o dist/x86_64/kernel.bin -T targets/x86_64/linker.ld $(kernel_object_files) $(kernel_cpp_object_files) $(x86_64_object_files) && \
+	cp dist/x86_64/kernel.bin targets/x86_64/iso/boot/kernel.bin && \
 	grub-mkrescue /usr/lib/grub/i386-pc -o dist/x86_64/kudos.iso targets/x86_64/iso
