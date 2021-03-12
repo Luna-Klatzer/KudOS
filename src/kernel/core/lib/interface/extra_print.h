@@ -8,7 +8,7 @@
 
 #pragma once
 
-#include "../kernel.h"
+#include "../interface/print.h"
 #include <stdint.h>
 #include <stddef.h>
 

@@ -1,5 +1,5 @@
 /*
- * kernel.h
+ * kernel.cpp
  *
  * Created: 12.03.2021
  * Author: Nicolas
@@ -7,6 +7,11 @@
  */ 
 
 #include "kernel.h"
+#include "core/startup.h"
+#include "core/lib/base.h"
+#include "core/lib/interface/extra_print.h"
+#include "core/lib/interface/print.h"
+#include <stdbool.h>
 
 // The global ERROR_MSG variable will be updated whenever a exception was raised
 char *ERROR_MSG = "";
@@ -18,15 +23,7 @@ class Kernel
         /// Currently only used for printing! 
         uint8_t construct() {
             clear_console();
-            kudoos_symbol();
-
-            // Some Testing stuff
-            for (int i = 0; i < 16; i++)
-            {
-                print("x\n");
-            }
-            printnl("d");
-            print("t");
+            print_start_symbol();
 
             return SUCCESS;
         }

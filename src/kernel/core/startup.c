@@ -6,10 +6,11 @@
  * Description: Main Interface and display for the Startup
  */ 
 
-#include "../kernel.h"
+#include "lib/interface/print.h"
+#include "lib/interface/extra_print.h"
 
 /// Prints a small sign saying KudoOS
-void kudoos_symbol() {
+void print_start_symbol() {
     char *display_name[7] = {
         "   ___   _  __   __  ______   _______         _______  _______  \n",
         "  |   | | ||  | |  ||      | |       |       |       ||       | \n",

@@ -13,7 +13,7 @@
 extern "C" {
 #endif
 
-void kudoos_symbol();
+void print_start_symbol();
 
 #if __cplusplus
 }
