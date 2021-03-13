@@ -11,6 +11,8 @@
 #include "interface/print.h"
 #include "convert.h"
 
+/// Order of vendor strings in assembly registries = ebx edx ecx
+
 /* Vendor-strings. */
 #define CPUID_VENDOR_OLDAMD       "AMDisbetter!"
 #define CPUID_VENDOR_AMD          "AuthenticAMD"
@@ -26,12 +28,21 @@
 #define CPUID_VENDOR_RISE         "RiseRiseRise"
 #define CPUID_VENDOR_VORTEX       "Vortex86 SoC"
 #define CPUID_VENDOR_VIA          "VIA VIA VIA "
+#define CPUID_VENDOR_MCST_ELBRUS  "E2K MACHINE"
+#define CPUID_VENDOR_HYGON        "HygonGenuine"
+#define CPUID_VENDOR_ZHAOXIN      "  Shanghai  "
  
 /*Vendor-strings from Virtual Machines.*/
-#define CPUID_VENDOR_VMWARE       "VMwareVMware"
-#define CPUID_VENDOR_XENHVM       "XenVMMXenVMM"
-#define CPUID_VENDOR_MICROSOFT_HV "Microsoft Hv"
-#define CPUID_VENDOR_PARALLELS    " lrpepyh vr"
+#define CPUID_VENDOR_VIRTUAL_VMWARE         "VMwareVMware"
+#define CPUID_VENDOR_VIRTUAL_QEMU           "TCGTCGTCGTCG"
+#define CPUID_VENDOR_VIRTUAL_XENHVM         "XenVMMXenVMM"
+#define CPUID_VENDOR_VIRTUAL_MICROSOFT_HV   "Microsoft Hv"
+#define CPUID_VENDOR_VIRTUAL_APPLE          "VirtualApple"
+#define CPUID_VENDOR_VIRTUAL_PARALLELS      " lrpepyh vr"
+#define CPUID_VENDOR_VIRTUAL_PROJECT_ACRN   "ACRNACRNACRN"
+#define CPUID_VENDOR_VIRTUAL_QNX_HYPERVISOR " QNXQVMBSQG "
+#define CPUID_VENDOR_VIRTUAL_KVM            " KVMKVMKVM "
+#define CPUID_VENDOR_VIRTUAL_BHYVE          "bhyve bhyve "
 
 /// Fetches the vendor id using assembly cpuid
 char* get_vendor_id() 
@@ -48,10 +59,10 @@ char* get_vendor_id()
     int_to_string(string, asm_ebx);
     newline();
     print(string);
-    int_to_string(string, asm_ecx);
+    int_to_string(string, asm_edx);
     newline();
     print(string);
-    int_to_string(string, asm_edx);
+    int_to_string(string, asm_ecx);
     newline();
     print(string);
     return "";

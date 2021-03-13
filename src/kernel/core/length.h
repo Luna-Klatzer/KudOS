@@ -14,8 +14,8 @@
 extern "C" {
 #endif
 
-int intlen(int);
-int strlen(char*);
+int get_int_len(int);
+int get_str_len(char*);
 
 #if __cplusplus
 }

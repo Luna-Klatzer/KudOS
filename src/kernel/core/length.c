@@ -7,7 +7,8 @@
  */ 
 #include <stddef.h>
 
-int intlen(int value)
+/// Returns the length (digits) of the passed integer
+int get_int_len(int value)
 {
     int len = 0;
     int v = value;
@@ -19,9 +20,9 @@ int intlen(int value)
     return len;
 }
 
-/// Returns the lenght of the passed string based on checking the content 
+/// Returns the length of the passed string based on checking the content 
 /// with NULL or @\0 which end a string
-int strlen(char string[])
+int get_str_len(char *string)
 {
     int len = 0;
     for (int i = 0; 1; i++)

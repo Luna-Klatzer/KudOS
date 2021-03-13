@@ -9,11 +9,13 @@
 #include "length.h"
 
 /// Fills the passed string based on the passed integer
-void int_to_string(char str[], int num)
+/// @param str The string that should be filled
+/// @param num The integer that should be used for the conversion
+void int_to_string(char *str, int num)
 {
     int rem;
  
-    int len = intlen(num);
+    int len = get_int_len(num);
     for (int i = 0; i < len; i++)
     {
         rem = num % 10;
@@ -24,9 +26,10 @@ void int_to_string(char str[], int num)
 }
  
 /// Converts an int to an string
-int string_to_int(char str[])
+/// @param str The string that should be converted
+int string_to_int(char *str)
 {
-    int len = strlen(str);
+    int len = get_str_len(str);
     int num = 0;
     int multiplier = 1;
     int num_at_index;
@@ -40,4 +43,24 @@ int string_to_int(char str[])
     }
  
     return num;
+}
+
+long hex_to_int(char *str)
+{
+    int strlen = get_str_len(str);
+    long sum = 0;
+    long long multiplier = 1;
+    // Calculating the highest multiplier
+    for (int i = 1; i < strlen; i++) multiplier *= 16;
+    
+    // Adding the multiplied value to the sum and then diving by the base (16)
+    for (int i = 0; i < strlen; i++, multiplier /= 16)
+    {
+        char byte = str[i];
+        if (byte >= '0' && byte <= '9') sum += (byte - '0') * multiplier;
+        else if (byte >= 'A' && byte <='F') sum += (byte - 'A' + 10) * multiplier;
+        else if (byte >= 'a' && byte <='f') sum += (byte - 'a' + 10) * multiplier;  
+        else return -1;
+    }
+    return sum;
 }
