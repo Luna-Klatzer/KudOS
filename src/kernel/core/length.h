@@ -5,6 +5,7 @@
  * Author: Nicolas
  * Description: Fetches lenght of strings and ints
  */ 
+#pragma once
 
 #ifndef LENGTH_H_
 #define LENGTH_H_

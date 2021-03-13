@@ -5,6 +5,7 @@
  * Author: Nicolas
  * Description: File containing functions for fetching cpu info using assembly cpuid
  */ 
+#pragma once
 
 #ifndef CPUID_H_
 #define CPUID_H_

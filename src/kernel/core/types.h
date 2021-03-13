@@ -17,11 +17,11 @@
 extern "C" {
 #endif
 
-    enum {
-        SUCCESS = 0,
-        FAILURE = 1,
-        CRITICAL = 2,
-    };
+enum {
+    SUCCESS = 0,
+    FAILURE = 1,
+    CRITICAL = 2,
+};
 
 #if __cplusplus
 }
