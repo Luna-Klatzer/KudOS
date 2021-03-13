@@ -37,16 +37,20 @@ void printnl(char* str) {
 }
 
 
-void printnum(unsigned long n, int base, char *outbuf)
+/// Writes to the passed string outbuf the modified value based on the number base (10/16)
+/// @param num The integer that should be modified
+/// @param base The base for the number
+/// @param outbuf Initialised char array that can hold the numbers
+void print_num(unsigned long num, int base, char *outbuf)
 {
     int i = 12;
     int j = 0;
 
     do {
-        outbuf[i] = "0123456789ABCDEF"[n % base];
+        outbuf[i] = "0123456789ABCDEF"[num % base];
         i--;
-        n /= base;
-    } while(n > 0);
+        num /= base;
+    } while(num > 0);
 
     while(++i < 13)
     {

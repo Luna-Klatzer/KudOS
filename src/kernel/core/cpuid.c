@@ -9,6 +9,7 @@
 #include <cpuid.h>
 #include "cpuid.h"
 #include "interface/print.h"
+#include "interface/extra_print.h"
 #include "convert.h"
 
 /// Order of vendor strings in assembly registries = ebx edx ecx
@@ -51,19 +52,33 @@ char* get_vendor_id()
 
     __cpuid(0, asm_eax, asm_ebx, asm_ecx, asm_edx);
 
-    char string[13]; 
+    char int_as_hex[10]; 
+    char int_as_string[10];
 
-    int_to_string(string, asm_eax);
+    int_to_string(int_as_string, asm_eax);
     newline();
-    print(string);
-    int_to_string(string, asm_ebx);
+    print(int_as_string);
+
+    int_to_string(int_as_string, asm_ebx);
     newline();
-    print(string);
-    int_to_string(string, asm_edx);
+    print(int_as_string);
+    print_num(asm_ebx, 16, int_as_hex);
     newline();
-    print(string);
-    int_to_string(string, asm_ecx);
+    print(int_as_hex);
+
+    int_to_string(int_as_string, asm_edx);
     newline();
-    print(string);
+    print(int_as_string);
+    print_num(asm_edx, 16, int_as_hex);
+    newline();
+    print(int_as_hex);
+ 
+    int_to_string(int_as_string, asm_ecx);
+    newline();
+    print(int_as_string);
+    print_num(asm_ecx, 16, int_as_hex);
+    newline();
+    print(int_as_hex);
+
     return "";
 }

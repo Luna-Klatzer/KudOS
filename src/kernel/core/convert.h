@@ -17,6 +17,7 @@ extern "C" {
 
 void int_to_string(char*, int);
 int string_to_int(char*);
+long hex_to_int(char*);
 
 #if __cplusplus
 }

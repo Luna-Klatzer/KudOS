@@ -25,6 +25,7 @@ void print_chars(char character, uint8_t amount);
 void print_new_lines(uint8_t amount);
 void print_spaces(uint8_t amount);
 void printnl(char* str);
+void print_num(unsigned long, int, char*);
 
 #if __cplusplus
 }
