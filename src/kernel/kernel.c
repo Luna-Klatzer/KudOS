@@ -11,6 +11,8 @@
 #include "core/startup.h"
 #include "core/interface/extra_print.h"
 #include "core/interface/print.h"
+#include "core/convert.h"
+#include "core/cpuid.h"
 #include <stdbool.h>
 
 // The global ERROR_MSG variable will be updated whenever a exception was raised
@@ -33,6 +35,8 @@ void kernel_main() {
     {
         // Enabling the command line after constructing the base of the operating system 
         cmd();
+
+        get_vendor_id(); // Trying to fetch the vendor id
         return;
     }
 

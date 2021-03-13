@@ -57,7 +57,7 @@ check_long_mode:
 	jb .no_long_mode
 
 	; checking wether long_mode is available by using the cpuid instruction and hoping that the 29th (LM) bit is set
-	; if in the edx registry the 29th bit is not set that means that long_mode is not available
+	; if after calling cpuid the 29th bit of the edx registry is not set that means that long_mode is not available
 	mov eax, 0x80000001
 	cpuid
 	test edx, 1 << 29
@@ -81,12 +81,13 @@ setup_page_tables:
 
 	mov ecx, 0 ; counter
 ; mapping in a for loop the entire l2 page 
+; used for ease insted of an additional l1 table
 .loop:
 
 	mov eax, 0x200000 ; Allocating with the huge page flag 2MB
 	mul ecx
 	or eax, 0b10000011 ; enabling the flags: present, writable, huge page
-	mov [page_table_l2 + ecx * 8], eax
+	mov [page_table_l2 + ecx * 8], eax ; moving the new allocated 2MB into the l2 table
 
 	inc ecx ; increment counter
 	cmp ecx, 512 ; checks if the whole table is mapped

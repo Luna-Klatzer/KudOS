@@ -1,6 +1,7 @@
 global long_mode_start
 extern kernel_main
 
+; long_mode 64-Bit execution
 section .text
 bits 64
 long_mode_start:

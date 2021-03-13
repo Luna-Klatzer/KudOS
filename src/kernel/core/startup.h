@@ -5,6 +5,7 @@
  * Author: Nicolas
  * Description: Main Interface and display for the Startup
  */ 
+#pragma once
 
 #include "types.h"
 
