@@ -5,7 +5,7 @@ An OS and Kernel Project for Learning Purposes based on Nasm and x86_64 which im
 ## Building .iso and /dist
 
 Since this project was made based on the series of davidcallanan the standard build process will also
-use docker and a container for utilising the compilers for assembly and C. It can also be simply built 
+use docker and a container for utilising the compilers for assembly and C/C++. It can also be simply built 
 on Linux or Windows but for ease docker is used since it can provide quick and simply virtualisation 
 features that make building it rather easy.
 
