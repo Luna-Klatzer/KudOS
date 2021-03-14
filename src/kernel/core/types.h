@@ -1,9 +1,9 @@
 /*
  * types.h
  *
- * Created: 12.03.2021
- * Author: Nicolas
- * Description: Type Declaration Header file used to declare types with pre-set global bit-sizes to avoid compiling issues
+ * Created: 13.03.2021
+ * Author: Nicolas-Klatzer
+ * Description: Utility functions for datatypes (int, char, long)
  */
 #pragma once
 
@@ -32,6 +32,8 @@ int hex_to_int(char *str);
 long hex_to_long(char *str);
 char dual_hex_to_ascii(char *hex);
 void hex_to_ascii(char *hex, char *output);
+void reverse_str(char* string, char* out);
+void str_copy(char* string, char* out, int index);
 
 #if __cplusplus
 }

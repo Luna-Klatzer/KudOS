@@ -2,7 +2,7 @@
  * main.hpp
  *
  * Created: 12.03.2021
- * Author: Nicolas
+ * Author: Nicolas-Klatzer
  * Description: Main file for the Command Line that has direct interaction access to the kernel
  */ 
 #pragma once

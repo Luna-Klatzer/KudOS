@@ -2,7 +2,7 @@
  * cpuid.h
  *
  * Created: 13.03.2021
- * Author: Nicolas
+ * Author: Nicolas-Klatzer
  * Description: File containing functions for fetching cpu info using assembly cpuid
  */ 
 #pragma once
@@ -14,7 +14,7 @@
 extern "C" {
 #endif
 
-char* get_vendor_id();
+void get_vendor_id(char* out);
 
 #if __cplusplus
 }

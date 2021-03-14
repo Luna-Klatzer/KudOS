@@ -1,9 +1,9 @@
 /*
- * convert.c
+ * types.c
  *
- * Created: 13.03.2021
- * Author: Nicolas
- * Description: Simple convert functions for datatypes
+ * Created: 14.03.2021
+ * Author: Nicolas-Klatzer
+ * Description: Utility functions for datatypes (int, char, long)
  */ 
 #include "types.h"
 #include "length.h"
@@ -175,5 +175,47 @@ void hex_to_ascii(char *hex, char *output)
     }
   }
   output[i] = '\0';
+}
+
+/// Flips the passed string and returns it with the indexes flipped (first index => last index)
+/// @param string String that will be reversed
+/// @param out String Array that will be written to
+void reverse_str(char* string, char* out)
+{
+  int str_len = get_str_len(string);
+  out[str_len] = '\0';
+  for (int i = str_len - 1; i >= 0; i--)
+  {
+    out[i] = string[str_len - 1 - i];
+  }
+}
+
+
+/// Copies a string to another string
+/// @param string String to copy
+/// @param out Output String where the string should be copied to
+/// @param index The starting index of out where the string should be copied to
+void str_copy(char* string, char* out, int index)
+{
+  int str_len = get_str_len(string);
+  for (int i = 0; i < str_len; i++, index++)
+  {
+    out[index] = string[i];
+  }
+}
+
+/// Currently not used but will later be implemented with macros
+typedef struct {
+  char* string;
+  char* out;
+  int index;
+} str_copy_args;
+
+void str_copy_wrapper(str_copy_args in)
+{
+  char* string = in.string;
+  char* out = in.out;
+  int index = in.index ? in.index : 0;
+  str_copy(string, out, index);
 }
 

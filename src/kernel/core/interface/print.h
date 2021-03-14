@@ -2,7 +2,7 @@
  * print.h
  *
  * Created: 26.02.2021
- * Author: Nicolas
+ * Author: Nicolas-Klatzer
  * Description: Print Utility to interact with the Console Interface 
  */ 
 
@@ -41,7 +41,7 @@ enum {
 	PRINT_COLOR_WHITE = 15,
 };
 
-void clear_console();
+void clear_screen();
 void newline();
 void clear_row();
 void overwrite_row(char* str, size_t overwrite_row);

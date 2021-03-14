@@ -2,7 +2,7 @@
  * main.cpp
  *
  * Created: 12.03.2021
- * Author: Nicolas
+ * Author: Nicolas-Klatzer
  * Description: Main file for the Command Line that has direct interaction access to the kernel
  */ 
 
@@ -25,8 +25,8 @@ class KernelCMD
     void cmd()
     {
       delay_cmd();
-      clear_console();
-      print_line("Not implemented yet!");
+      clear_screen();
+      print_line("KuDOS Command Line not implemented yet!\n");
     }
 };
 

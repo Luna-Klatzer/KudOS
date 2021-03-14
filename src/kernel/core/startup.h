@@ -2,7 +2,7 @@
  * startup.h
  *
  * Created: 26.02.2021
- * Author: Nicolas
+ * Author: Nicolas-Klatzer
  * Description: Main Interface and display for the Startup
  */ 
 #pragma once
@@ -17,6 +17,7 @@ extern "C" {
 #endif
 
 void print_start_symbol();
+void show_startup_hardware_info();
 
 #if __cplusplus
 }

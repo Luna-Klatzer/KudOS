@@ -2,7 +2,7 @@
  * print.c
  *
  * Created: 26.02.2021
- * Author: Nicolas
+ * Author: Nicolas-Klatzer
  * Description: Print Utility to interact with the Console Interface 
  */
 
@@ -22,7 +22,7 @@ struct Char {
 
 // Graphical buffer at 0xb8000 which can be accessed using the index
 struct Char* buffer = (struct Char*) 0xb8000;
-size_t col = 0; // storing the current column position
+size_t column = 0; // storing the current column position
 size_t row = 0; // storing the current row position
 
 // Default color => WHITE | BLACK
@@ -37,10 +37,10 @@ void clear_row(size_t row) {
   };
 
   // Overwriting all characters (column) in the current row
-  for (size_t col = 0; col < NUM_COLS; col++)
+  for (size_t column = 0; column < NUM_COLS; column++)
   {
     // index of the character in the column
-    buffer[col + NUM_COLS * row] = empty;
+    buffer[column + NUM_COLS * row] = empty;
   }
 }
 
@@ -54,33 +54,33 @@ void clear_row(size_t row) {
 void overwrite_row(char* str, size_t overwrite_row) {
   // Stores the row of the last print
   size_t pre_row = row;
-  // Stores the col of the last print
-  size_t pre_col = col;
+  // Stores the column of the last print
+  size_t pre_col = column;
 
   // Changing the current row and column so
   row = overwrite_row;
-  col = 0;
+  column = 0;
   print(str);
 
   row = pre_row;
-  col = pre_col;
+  column = pre_col;
 }
 
 
 /// Clears the entire console interface
-void clear_console() {
+void clear_screen() {
   for (size_t i = 0; i < NUM_ROWS; i++)
   {
     clear_row(i);
   }
-  col = 0;
+  column = 0;
   row = 0;
 }
 
 
 /// Creates a new line on the console
 void newline() {
-  col = 0;
+  column = 0;
 
   if (row < NUM_ROWS)
   {
@@ -91,11 +91,11 @@ void newline() {
   // Moving all content up by one row so the lowest line can be cleared
   for (size_t row = 1; row < NUM_ROWS; row++)
   {
-    for (size_t col = 0; col < NUM_COLS; col++)
+    for (size_t column = 0; column < NUM_COLS; column++)
     {
       // Moving all Character upwards to make room for the new line
-      struct Char character = buffer[col + NUM_COLS * row];
-      buffer[col + NUM_COLS * (row - 1)] = character;
+      struct Char character = buffer[column + NUM_COLS * row];
+      buffer[column + NUM_COLS * (row - 1)] = character;
     }
   }
 
@@ -114,19 +114,19 @@ void print_char(char character) {
   }
 
   // Avoiding that the print exceeds the index
-  if (col >= NUM_COLS)
+  if (column >= NUM_COLS)
   {
     newline();
   }
 
   // Overwriting the buffer with a new character with the assigned color
-  buffer[col + NUM_COLS * row] = (struct Char) {
+  buffer[column + NUM_COLS * row] = (struct Char) {
     .character=(uint8_t) character,
     .color=color
   };
 
   // Next default column is gonna be used instead of the current one
-  col++;
+  column++;
 }
 
 
@@ -179,8 +179,8 @@ void print_spaces(uint8_t amount) {
 /// Prints the entered string and jumps to the next line
 /// @param str String that will be printed
 void print_line(char* str) {
-  newline();
   print(str);
+  newline();
 }
 
 

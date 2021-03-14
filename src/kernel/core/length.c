@@ -2,7 +2,7 @@
  * length.c
  *
  * Created: 13.03.2021
- * Author: Nicolas
+ * Author: Nicolas-Klatzer
  * Description: Fetches lenght of strings and ints
  */ 
 #include <stddef.h>

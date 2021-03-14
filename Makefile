@@ -28,19 +28,19 @@ $(info $$x86_64_object_files is [${x86_64_object_files}])
 
 $(kernel_object_files): build/kernel/%.o : src/kernel/%.c
 	mkdir -p $(dir $@) && \
-	x86_64-elf-gcc -c -I src/x86_64 -ffreestanding $(patsubst build/kernel/%.o, src/kernel/%.c, $@) -o $@
+	x86_64-elf-gcc -std=c11 -c -I src/x86_64 -ffreestanding $(patsubst build/kernel/%.o, src/kernel/%.c, $@) -o $@
 
 $(kernel_cpp_object_files): build/kernel/%.o : src/kernel/%.cpp
 	mkdir -p $(dir $@) && \
-	x86_64-elf-gcc -c -I src/x86_64 -ffreestanding $(patsubst build/kernel/%.o, src/kernel/%.cpp, $@) -o $@
+	x86_64-elf-gcc -std=c11 -c -I src/x86_64 -ffreestanding $(patsubst build/kernel/%.o, src/kernel/%.cpp, $@) -o $@
  
 $(cmd_object_files): build/cmd/%.o : src/cmd/%.cpp
 	mkdir -p $(dir $@) && \
-	x86_64-elf-gcc -c -I src/x86_64 -ffreestanding $(patsubst build/cmd/%.o, src/cmd/%.cpp, $@) -o $@
+	x86_64-elf-gcc -std=c11 -c -I src/x86_64 -ffreestanding $(patsubst build/cmd/%.o, src/cmd/%.cpp, $@) -o $@
 
 $(x86_64_c_object_files): build/x86_64/%.o : src/x86_64/%.c
 	mkdir -p $(dir $@) && \
-	x86_64-elf-gcc -c -I src/x86_64 -ffreestanding $(patsubst build/x86_64/%.o, src/x86_64/%.c, $@) -o $@
+	x86_64-elf-gcc -std=c11 -c -I src/x86_64 -ffreestanding $(patsubst build/x86_64/%.o, src/x86_64/%.c, $@) -o $@
 
 $(x86_64_asm_object_files): build/x86_64/%.o : src/x86_64/%.asm
 	mkdir -p $(dir $@) && \

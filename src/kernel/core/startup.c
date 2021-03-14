@@ -2,11 +2,12 @@
  * startup.c
  *
  * Created: 26.02.2021
- * Author: Nicolas
+ * Author: Nicolas-Klatzer
  * Description: Main Interface and display for the Startup
  */ 
 
 #include "interface/print.h"
+#include "asm/cpuid.h"
 
 /// Prints a small sign saying KudoOS
 void print_start_symbol() {
@@ -29,4 +30,17 @@ void print_start_symbol() {
     print(display_name[i]);
   }
   print_chars('*', NUM_COLS);
+}
+
+/// Fetches the basic hardware info about the system and displays it
+void show_startup_hardware_info()
+{
+  clear_screen();
+  newline();
+  print_line("HARDWARE INFO:");
+
+  char string[13] = "";
+  get_vendor_id(string);
+  print("Vendor-ID: ");
+  print(string);
 }
