@@ -23,7 +23,7 @@ const static size_t NUM_COLS = 80;
 const static size_t NUM_ROWS = 20;
 
 enum {
-    PRINT_COLOR_BLACK = 0,
+  PRINT_COLOR_BLACK = 0,
 	PRINT_COLOR_BLUE = 1,
 	PRINT_COLOR_GREEN = 2,
 	PRINT_COLOR_CYAN = 3,
@@ -48,6 +48,11 @@ void overwrite_row(char* str, size_t overwrite_row);
 void print_char(char character);
 void print(char* string);
 void set_console_color(uint8_t foreground, uint8_t background);
+void print_chars(char character, uint8_t amount);
+void print_new_lines(uint8_t amount);
+void print_spaces(uint8_t amount);
+void print_line(char* str);
+void print_num(unsigned long n, int base, char *outbuf);
 
 #if __cplusplus
 }

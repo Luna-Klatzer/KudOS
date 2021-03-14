@@ -28,8 +28,8 @@ check_multiboot:
 	mov al, "M"
 	jmp error
 
-; To check wether cpuid is available it will be attempted to flip one bit in the registry and see if it worked
-; if in the end nothing has changed cpuid is not available and an error message will be visible on the screen
+; To check wether cpuid is available we will attempt to flip one bit in the cpu registry and see if it worked
+; if in the end nothing has changed (=> didn't work) cpuid is not available and an error message will appear
 check_cpuid:
 	pushfd
 	pop eax
@@ -50,7 +50,7 @@ check_cpuid:
 
 check_long_mode:
 	; checking whether extended processor info is available by checking the size of the eax registry
-    ; if the eax registry is not bigger than the passed value extended processor info is not available
+  ; if the eax registry is not bigger than the passed value extended processor info is not available
 	mov eax, 0x80000000
 	cpuid
 	cmp eax, 0x80000001 
@@ -79,7 +79,7 @@ setup_page_tables:
 	or eax, 0b11 ; enabling the flags: present, writable
 	mov [page_table_l3], eax ; moving the modified table l2 with the set flags into the l3 table
 
-	mov ecx, 0 ; counter
+	mov ecx, 0 ; starting a basic counter
 ; mapping in a for loop the entire l2 page 
 ; used for ease insted of an additional l1 table
 .loop:
@@ -102,7 +102,7 @@ enable_paging:
 
 	; enable Physical Address Extension required for 64-Bit paging
 	mov eax, cr4
-	or eax, 1 << 5
+	or eax, 1 << 5 ; enabling the PAE bit flag
 	mov cr4, eax
 
 	; enable long mode
@@ -128,7 +128,7 @@ error:
 
 ; Settings up paging where virtual addresses are mapped to actual addresses in the memory 
 ; every page has a size of 4KB and each entry points to the next lower page
-; l1 is not used since the huge page flag is enabled which then allocates 2 MB that points directly to physical memory
+; l1 is not used since the huge page flag is enabled which then allocates 2 MB in l2 that points directly to physical memory
 section .bss
 align 4096
 page_table_l4:

@@ -2,21 +2,21 @@ ENTRY(start)
 
 SECTIONS
 {
-    . = 0x0100000;
+  . = 0x0100000;
 
-    .boot :
-    {
-        KEEP(*(.multiboot_header))
-    }
+  .boot :
+  {
+    KEEP(*(.multiboot_header))
+  }
 
-    .text :
-    {
-        *(.text)
-        *(.multiboot)
-    }
+  .text :
+  {
+    *(.text)
+    *(.multiboot)
+  }
 
-    .bss  :
-    {
-        *(.bss)
-    }
+  .bss  :
+  {
+    *(.bss)
+  }
 }

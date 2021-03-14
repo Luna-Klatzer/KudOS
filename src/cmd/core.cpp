@@ -10,24 +10,24 @@
 
 class KernelCMD
 {
-    public:
-        /// Simulates a simple sleep()
-        void delay_cmd() 
-        {
-            for (long i = 0; i < 294967294; i++)
-            {
-                continue;
-            }
-            return;
-        }
-        
-        /// Starts the global command line for user interaction
-        void cmd() 
-        {
-            delay_cmd();
-            clear_console();
-            print("Not implemented yet!");
-        }
+  public:
+    /// Simulates a simple sleep()
+    void delay_cmd()
+    {
+      for (long i = 0; i < 294967294; i++)
+      {
+        continue;
+      }
+      return;
+    }
+
+    /// Starts the global command line for user interaction
+    void cmd()
+    {
+      delay_cmd();
+      clear_console();
+      print_line("Not implemented yet!");
+    }
 };
 
 KernelCMD console_interface = KernelCMD();
@@ -39,8 +39,8 @@ KernelCMD console_interface = KernelCMD();
 ///
 #define _Generate_Indirection_RetEArgs(ret, name, ThisType, thisArg) \
 extern "C" ret name ( ThisType thisArg ) \
-{                                     \
-    return thisArg.name();            \
-}                                     \
+{                   \
+  return thisArg.name();      \
+}                   \
 
 _Generate_Indirection_RetEArgs(void, cmd, KernelCMD, console_interface);
