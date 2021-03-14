@@ -15,6 +15,7 @@ int get_int_len(int value)
     while (v != 0)
     {
         len++;
+        v -= v % 10;
         v /= 10;
     }
     return len;
@@ -30,4 +31,32 @@ int get_str_len(char *string)
         if (string[i] == '\0' || !string) return len;
         len++;
     }
+}
+
+/// Returns the length (digits) of the passed long
+int get_long_len(long value)
+{
+    int len = 0;
+    long v = value;
+    while (v != 0)
+    {
+        len++;
+        v -= v % 10;
+        v /= 10;
+    }
+    return len;
+}
+
+/// Returns the length (digits) of the passed long long
+int get_long_long_len(long long value)
+{
+    int len = 0;
+    long long v = value;
+    while (v != 0)
+    {
+        len++;
+        v -= v % 10;
+        v /= 10;
+    }
+    return len;
 }

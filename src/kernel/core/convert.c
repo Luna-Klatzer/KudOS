@@ -11,7 +11,7 @@
 /// Fills the passed string based on the passed integer
 /// @param str The string that should be filled
 /// @param num The integer that should be used for the conversion
-void int_to_string(char *str, int num)
+void int_to_string(int num, char *str)
 {
     int rem;
  

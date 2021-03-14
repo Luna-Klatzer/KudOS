@@ -7,6 +7,7 @@
  */ 
 
 #include "extra_print.h"
+#include "../length.h"
 
 /// Prints a certain character on the console
 /// @param amount Amount of the character
@@ -38,24 +39,31 @@ void printnl(char* str) {
 
 
 /// Writes to the passed string outbuf the modified value based on the number base (10/16)
-/// @param num The integer that should be modified
+/// @param num The positive integer that should be modified
 /// @param base The base for the number
 /// @param outbuf Initialised char array that can hold the numbers
-void print_num(unsigned long num, int base, char *outbuf)
+void print_num(unsigned long n, int base, char *outbuf)
 {
-    int i = 12;
-    int j = 0;
+    char *chars = "0123456789ABCDEF";
 
-    do {
-        outbuf[i] = "0123456789ABCDEF"[num % base];
-        i--;
-        num /= base;
-    } while(num > 0);
-
-    while(++i < 13)
+    unsigned long check_num = n;
+    int len = 0;
+    int index;
+    // Finding the length of the output hex number
+    for (index = get_long_len((long) n) - 1; check_num > 0 && index >= 0; index--, len++)
     {
-       outbuf[j++] = outbuf[i];
+        check_num -= (check_num % base);
+        check_num /= base;
     }
 
-    outbuf[j] = 0;
+    // Overwriting the passed string with the hex chars
+    for (index = len - 1; n > 0 && index >= 0; index--)
+    {
+        outbuf[index] = chars[n % base];
+        n -= (n % base);
+        n /= base;
+    }
+
+    // Avoiding that any random characters are getting returned after the hex string 
+    outbuf[len] = '\0'; 
 }

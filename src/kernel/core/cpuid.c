@@ -55,25 +55,25 @@ char* get_vendor_id()
     char int_as_hex[10]; 
     char int_as_string[10];
 
-    int_to_string(int_as_string, asm_eax);
+    int_to_string(asm_eax, int_as_string);
     newline();
     print(int_as_string);
 
-    int_to_string(int_as_string, asm_ebx);
+    int_to_string(asm_ebx, int_as_string);
     newline();
     print(int_as_string);
     print_num(asm_ebx, 16, int_as_hex);
     newline();
     print(int_as_hex);
 
-    int_to_string(int_as_string, asm_edx);
+    int_to_string(asm_edx, int_as_string);
     newline();
     print(int_as_string);
     print_num(asm_edx, 16, int_as_hex);
     newline();
     print(int_as_hex);
  
-    int_to_string(int_as_string, asm_ecx);
+    int_to_string(asm_ecx, int_as_string);
     newline();
     print(int_as_string);
     print_num(asm_ecx, 16, int_as_hex);

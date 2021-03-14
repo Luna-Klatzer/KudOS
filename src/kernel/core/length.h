@@ -16,6 +16,9 @@ extern "C" {
 
 int get_int_len(int);
 int get_str_len(char*);
+int get_long_len(long);
+int get_long_long_len(long long);
+
 
 #if __cplusplus
 }

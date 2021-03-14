@@ -15,7 +15,7 @@
 extern "C" {
 #endif
 
-void int_to_string(char*, int);
+void int_to_string(int, char*);
 int string_to_int(char*);
 long hex_to_int(char*);
 
