@@ -11,7 +11,7 @@
 #include "../interface/print.h"
 #include "../types.h"
 
-/// Order of vendor strings in assembly registries = ebx edx ecx
+/* Order of vendor strings in assembly registries: ebx edx ecx */
 
 /* Vendor-strings. */
 #define CPUID_VENDOR_OLDAMD         "AMDisbetter!"
@@ -32,7 +32,7 @@
 #define CPUID_VENDOR_HYGON          "HygonGenuine"
 #define CPUID_VENDOR_ZHAOXIN        "  Shanghai  "
  
-/*Vendor-strings from Virtual Machines.*/
+/* Vendor-strings from Virtual Machines.*/
 #define CPUID_VENDOR_VIRTUAL_VMWARE          "VMwareVMware"
 #define CPUID_VENDOR_VIRTUAL_QEMU            "TCGTCGTCGTCG"
 #define CPUID_VENDOR_VIRTUAL_XENHVM          "XenVMMXenVMM"
@@ -44,7 +44,7 @@
 #define CPUID_VENDOR_VIRTUAL_KVM             " KVMKVMKVM "
 #define CPUID_VENDOR_VIRTUAL_BHYVE           "bhyve bhyve "
 
-/// Fetches the vendor id using assembly cpuid
+/* Fetches the vendor id using assembly cpuid */
 void get_vendor_id(char* out)
 {
   int asm_eax, asm_ebx, asm_ecx, asm_edx;
@@ -55,17 +55,19 @@ void get_vendor_id(char* out)
   char hex_as_string[5] = "";
 
   char str[13] = "";
-  print_num(asm_ecx, 16, int_as_hex); // Converting the integer to hex
-  hex_to_ascii(int_as_hex, hex_as_string);  // Converting the hex to ascii
-  str_copy(hex_as_string, str, 0); // Copying the string
+  /* Converting the integer to hex and then to ascii characters which are then copied into a string */
+  print_num(asm_ecx, 16, int_as_hex);
+  hex_to_ascii(int_as_hex, hex_as_string); 
+  str_copy(hex_as_string, str, 0);
 
-  print_num(asm_edx, 16, int_as_hex); // Converting the integer to hex
-  hex_to_ascii(int_as_hex, hex_as_string); // Converting the hex to ascii
-  str_copy(hex_as_string, str, 4); // Copying the string
+  print_num(asm_edx, 16, int_as_hex);
+  hex_to_ascii(int_as_hex, hex_as_string); 
+  str_copy(hex_as_string, str, 4); 
 
-  print_num(asm_ebx, 16, int_as_hex); // Converting the integer to hex
-  hex_to_ascii(int_as_hex, hex_as_string); // Converting the hex to ascii
-  str_copy(hex_as_string, str, 8); // Copying the string
+  print_num(asm_ebx, 16, int_as_hex); 
+  hex_to_ascii(int_as_hex, hex_as_string); 
+  str_copy(hex_as_string, str, 8); 
 
-  reverse_str(str, out); // Reversing the string since it's backwards
+  /* Reversing the string since the given string is currently backwards */
+  reverse_str(str, out); 
 }

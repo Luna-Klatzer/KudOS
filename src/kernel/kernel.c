@@ -13,11 +13,13 @@
 #include "core/types.h"
 #include <stdbool.h>
 
-// The global ERROR_MSG variable will be updated whenever a exception was raised
+/* The global ERROR_MSG variable will be updated whenever a exception was raised */
 char *ERROR_MSG = "";
 
-/// Startup Function used for starting the OS processes
-/// Currently only used for printing! 
+/* 
+ * Startup Function used for starting the OS processes
+ * Currently only used for printing! 
+ */
 uint8_t construct() {
   clear_screen();
   print_start_symbol();
@@ -25,9 +27,9 @@ uint8_t construct() {
   return SUCCESS;
 }
 
-/// Main Method that starts the Core Kernel
+/* Main Method that starts the Core Kernel */
 void kernel_main() {
-  // Constructing the base of the operating system
+  /* Constructing the base of the operating system */
   uint8_t success = construct();
   if (success == SUCCESS)
   {

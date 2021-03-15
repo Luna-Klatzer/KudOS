@@ -11,7 +11,7 @@
 class KernelCMD
 {
   public:
-    /// Simulates a simple sleep()
+    /* Simulates a simple sleep() */
     void delay_cmd()
     {
       for (long i = 0; i < 294967294; i++)
@@ -21,7 +21,7 @@ class KernelCMD
       return;
     }
 
-    /// Starts the global command line for user interaction
+    /* Starts the global command line for user interaction */
     void cmd()
     {
       delay_cmd();
@@ -32,11 +32,9 @@ class KernelCMD
 
 KernelCMD console_interface = KernelCMD();
 
-#define _SepArg_ , // Comma macro
+#define _SepArg_ , /* Comma macro
 
-///
-/// Indirection for the core Kernel Method which is in C++ and contains C++ name mangling 
-///
+/* Indirection for the core Kernel Method which is in C++ and will now be called using a C wrapper method */
 #define _Generate_Indirection_RetEArgs(ret, name, ThisType, thisArg) \
 extern "C" ret name ( ThisType thisArg ) \
 {                   \

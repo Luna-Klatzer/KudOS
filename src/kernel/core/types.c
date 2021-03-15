@@ -9,8 +9,10 @@
 #include "length.h"
 #include "interface/print.h"
 
-/// Removes inside a string all control chars and overwrites the passed string
-/// Max. length 2048
+/*
+ * Removes inside a string all control chars and overwrites the passed string
+ * Max. length 2048
+ */
 void remove_control_chars(char* string, char* out)
 {
   int string_index = 0;
@@ -23,16 +25,18 @@ void remove_control_chars(char* string, char* out)
     {
       out[string_index] = string[i];
     }
-    // Avoiding every character that is not standard ASCII
+    /* Avoiding every character that is not standard ASCII */
     else string_index--;
   }
 
   out[i] = '\0';
 }
 
-/// Fills the passed string based on the passed integer
-/// @param str The string that should be filled
-/// @param num The integer that should be used for the conversion
+/*
+ * Fills the passed string based on the passed integer
+ * @param str The string that should be filled
+ * @param num The integer that should be used for the conversion
+ */
 void int_to_string(int num, char *str)
 {
   int rem;
@@ -47,8 +51,10 @@ void int_to_string(int num, char *str)
   str[len] = '\0';
 }
  
-/// Converts an int to an string
-/// @param str The string that should be converted
+/*
+ * Converts an int to an string
+ * @param str The string that should be converted
+ */
 int string_to_int(char *str)
 {
   int len = get_str_len(str);
@@ -58,19 +64,26 @@ int string_to_int(char *str)
  
   for (int i = 0; i < len; i++)
   {
-    num_at_index = str[len - (i + 1)] - '0'; // Finding out the reversed index of the num (right to left)
-    for (int x = 0; x < i; x++) multiplier *= 10; // Getting the multiplier since pow is not available
-    num += num_at_index * multiplier; // Adding the value
-    multiplier = 1; // Resetting the multiplier to 1
+    /* Finding out the reversed index of the num (right to left) */
+    num_at_index = str[len - (i + 1)] - '0'; 
+
+    /* Re-evaluating the multiplier since pow is not available */
+    for (int x = 0; x < i; x++) multiplier *= 10; 
+    num += num_at_index * multiplier;
+    
+    /* Resetting the multiplier to 1 */
+    multiplier = 1;
   }
  
   return num;
 }
 
-/// Converts an hex number to an int
-/// If an invalid character is inside the string it will return -1 (Control chars will be automatically removed)
-/// Max. Hex length is 32 Bit / 4 Byte / 8 Hex
-/// @param str The string that should be converted
+/*
+ * Converts an hex number to an int
+ * If an invalid character is inside the string it will return -1 (Control chars will be automatically removed)
+ * Max. Hex length is 32 Bit / 4 Byte / 8 Hex
+ * @param str The string that should be converted
+ */
 int hex_to_int(char *str)
 {
   char buf[9] = "\0";
@@ -79,10 +92,10 @@ int hex_to_int(char *str)
   int sum = 0;
   int multiplier = 1;
 
-  // Calculating the multiplier for the biggest number (num at index 0)
+  /* Calculating the multiplier for the biggest number (num at index 0) */ 
   for (int i = 1; i < str_len; i++) multiplier *= 16;
 
-  // Adding the multiplied value to the sum and then diving by the base (16)
+  /* Adding the multiplied value to the sum and then diving by the base (16) */
   for (int i = 0; i < str_len; i++, multiplier /= 16)
   {
     char byte = buf[i];
@@ -94,10 +107,12 @@ int hex_to_int(char *str)
   return sum;
 }
 
-/// Converts an hex number to an long integer
-/// If an invalid character is inside the string it will return -1
-/// Max. Hex length is 64 Bit / 8 Byte / 16 Hex
-/// @param str The string that should be converted
+/*
+ * Converts an hex number to an long integer
+ * If an invalid character is inside the string it will return -1
+ * Max. Hex length is 64 Bit / 8 Byte / 16 Hex
+ * @param str The string that should be converted
+ */
 long hex_to_long(char *str)
 {
   char buf[17] = "\0";
@@ -105,10 +120,10 @@ long hex_to_long(char *str)
   int str_len = get_str_len(buf);
   long sum = 0;
   long multiplier = 1;
-  // Calculating the highest multiplier
+  /* Calculating the highest multiplier */
   for (int i = 1; i < str_len; i++) multiplier *= 16;
 
-  // Adding the multiplied value to the sum and then diving by the base (16)
+  /* Adding the multiplied value to the sum and then diving by the base (16) */
   for (int i = 0; i < str_len; i++, multiplier /= 16)
   {
     char byte = buf[i];
@@ -137,16 +152,20 @@ bool valid_hex(char *hex)
   return true;
 }
 
-/// Converts an hex number to an dual ascii character and returns it
-/// @param hex The string that should be converted
+/*
+ * Converts an hex number to an dual ascii character and returns it
+ * @param hex The string that should be converted
+ */
 char dual_hex_to_ascii(char *hex)
 {
   return (char) hex_to_int(hex);
 }
 
-/// Converts an hex number to an ascii string
-/// @param hex The string that should be converted
-/// @param output The initialised string which will be overwritten
+/*
+ * Converts an hex number to an ascii string
+ * @param hex The string that should be converted
+ * @param output The initialised string which will be overwritten
+ */
 void hex_to_ascii(char *hex, char *output)
 {
   char storage[3] = "  \0";
@@ -177,9 +196,11 @@ void hex_to_ascii(char *hex, char *output)
   output[i] = '\0';
 }
 
-/// Flips the passed string and returns it with the indexes flipped (first index => last index)
-/// @param string String that will be reversed
-/// @param out String Array that will be written to
+/*
+ * Flips the passed string and returns it with the indexes flipped (first index => last index)
+ * @param string String that will be reversed
+ * @param out String Array that will be written to
+ */
 void reverse_str(char* string, char* out)
 {
   int str_len = get_str_len(string);
@@ -191,10 +212,12 @@ void reverse_str(char* string, char* out)
 }
 
 
-/// Copies a string to another string
-/// @param string String to copy
-/// @param out Output String where the string should be copied to
-/// @param index The starting index of out where the string should be copied to
+/*
+ * Copies a string to another string
+ * @param string String to copy
+ * @param out Output String where the string should be copied to
+ * @param index The starting index of out where the string should be copied to
+ */
 void str_copy(char* string, char* out, int index)
 {
   int str_len = get_str_len(string);
@@ -204,7 +227,7 @@ void str_copy(char* string, char* out, int index)
   }
 }
 
-/// Currently not used but will later be implemented with macros
+/* Currently not used but will later be implemented with macros */
 typedef struct {
   char* string;
   char* out;
