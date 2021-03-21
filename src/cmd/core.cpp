@@ -26,7 +26,7 @@ class KernelCMD
     {
       delay_cmd();
       clear_screen();
-      print_line("KuDOS Command Line not implemented yet!\n");
+      print_line("KudOS Command Line not implemented yet!\n");
     }
 };
 

@@ -1,10 +1,10 @@
-# Kudo Disk Operating System
+# Kudo Operating System
 
 An OS and Kernel Project for Learning Purposes based on Nasm and x86_64 which implements C and C++ code for kernel functionality
 
 ## Building .iso and /dist
 
-Since this project was made based on the series of davidcallanan the standard build process will also
+Since the rough project structure was made based on the series of davidcallanan the standard build process will also
 use docker and a container for utilising the compilers for assembly and C/C++. It can also be simply built 
 on Linux or Windows but for ease docker is used since it can provide quick and simply virtualisation 
 features that make building it rather easy.
@@ -14,6 +14,7 @@ docker build ./buildenv -t kudos-build
 ```
 
 ### Entering the shared container
+*Docker Info Docs Copied from [here](https://github.com/davidcallanan/os-series/blob/ep2/README.md)*
 
  - Linux or MacOS: `docker run --rm -it -v "$pwd":/root/env kudos-build`
  - Windows (CMD): `docker run --rm -it -v "%cd%":/root/env kudos-build`

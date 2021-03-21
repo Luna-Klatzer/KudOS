@@ -9,7 +9,7 @@
 #include "interface/print.h"
 #include "asm/cpuid.h"
 
-/// Prints a small sign saying KudoOS
+/// Prints a small sign saying KudOS
 void print_start_symbol() {
   char *display_name[7] = {
     "   ___   _  __   __  ______   _______   _______  \n",
